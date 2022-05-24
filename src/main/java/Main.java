@@ -1,3 +1,4 @@
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
@@ -9,6 +10,7 @@ import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.element.Paragraph;
 
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +67,9 @@ public class Main {
                     var rect = new Rectangle(
                             newPage.getPageSize()).moveRight(10).moveDown(10);
                     Canvas canvas = new Canvas(newPage, rect);
-                    Paragraph paragraph = new Paragraph().add("Suggestions:\n");
+                    Paragraph paragraph = new Paragraph("Suggestions:\n")
+                            .setFontColor(new DeviceRgb(10, 36, 190))
+                            .setBackgroundColor(new DeviceRgb(210, 240,10));
                     paragraph.setFontSize(25);
 
                     // вставляем туда рекомендуемые ссылки из конфига
