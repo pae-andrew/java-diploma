@@ -20,4 +20,10 @@ public class Suggest {
     public String getUrl() {
         return url;
     }
+
+    public String toString() {
+        return "keyWord - " + this.keyWord +
+                "\ntitle - " + this.title +
+                "\nurl - " + this.url;
+    }
 }
