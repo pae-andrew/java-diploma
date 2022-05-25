@@ -47,15 +47,18 @@ public class Main {
             }
 
             int i = 1;
+            List<String> keyWords = new ArrayList<>();
             for (String page : pages) {
 
                 List<String> urls = new ArrayList<>();
                 List<String> titles = new ArrayList<>();
                 for (Suggest suggest :suggests) {
                     if (page.toLowerCase().contains(
-                            suggest.getKeyWord().toLowerCase())) {
+                            suggest.getKeyWord().toLowerCase()) &
+                    !keyWords.contains(suggest.getKeyWord())) {
                         urls.add(suggest.getUrl());
                         titles.add(suggest.getTitle());
+                        keyWords.add(suggest.getKeyWord());
                     }
                 }
 
